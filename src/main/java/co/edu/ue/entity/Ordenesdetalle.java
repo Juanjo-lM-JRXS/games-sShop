@@ -16,8 +16,10 @@ public class Ordenesdetalle implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="ordenesDetallesID")
 	private int ordenesDetallesID;
 
+	@Column(name="ordenesDetallesCantidad")
 	private int ordenesDetallesCantidad;
 
 	//bi-directional many-to-one association to Orden
