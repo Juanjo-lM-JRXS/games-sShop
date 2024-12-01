@@ -1,4 +1,4 @@
-package co.edu.ue.jpa;
+package co.edu.ue.entity;
 
 import java.io.Serializable;
 import jakarta.persistence.*;
@@ -11,17 +11,21 @@ import java.util.List;
  * 
  */
 @Entity
+@Table(name="orden")
 @NamedQuery(name="Orden.findAll", query="SELECT o FROM Orden o")
 public class Orden implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="ordenesID")
 	private int ordenesID;
 
 	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="ordenDate")
 	private Date ordenDate;
 
+	@Column(name="ordenEstado")
 	private int ordenEstado;
 
 	//bi-directional many-to-one association to Usuario

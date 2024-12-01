@@ -1,4 +1,4 @@
-package co.edu.ue.jpa;
+package co.edu.ue.entity;
 
 import java.io.Serializable;
 import jakarta.persistence.*;
