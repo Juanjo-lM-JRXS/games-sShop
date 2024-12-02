@@ -44,12 +44,3 @@ public class DatoService implements IDatoService {
 	}
 
 }
-
-//Object obj = findIdDato(dato.getDatId());
-// System.out.println(obj.equals(null));
-// System.out.println("Objeto generico:"+obj);
-
-//if(!findIdDato(dato.getDatId()).equals(null)) {
-//Dato datoTest = dao.actualizarDato(dato);
-//System.out.println(datoTest);
-//return datoTest;
