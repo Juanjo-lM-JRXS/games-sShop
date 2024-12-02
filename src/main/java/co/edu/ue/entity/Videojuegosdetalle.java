@@ -19,10 +19,13 @@ public class Videojuegosdetalle implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int videojuegosID;
 
+	@Column(name="videojuegosDescripcion")
 	private String videojuegosDescripcion;
 
+	@Column(name="videojuegosNombre")
 	private String videojuegosNombre;
 
+	@Column(name="videojuegosPrecio")
 	private double videojuegosPrecio;
 
 	//bi-directional many-to-one association to VideojuegosPlataforma

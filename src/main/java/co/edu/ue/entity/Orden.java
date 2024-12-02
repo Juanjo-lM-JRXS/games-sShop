@@ -35,7 +35,7 @@ public class Orden implements Serializable {
 
 	//bi-directional many-to-one association to Ordenesdetalle
 	@OneToMany(mappedBy="orden")
-	private List<Ordenesdetalle> ordenesdetalles;
+	private List<Ordenesdetalles> ordenesdetalles;
 
 	public Orden() {
 	}
@@ -72,22 +72,22 @@ public class Orden implements Serializable {
 		this.usuario = usuario;
 	}
 
-	public List<Ordenesdetalle> getOrdenesdetalles() {
+	public List<Ordenesdetalles> getOrdenesdetalles() {
 		return this.ordenesdetalles;
 	}
 
-	public void setOrdenesdetalles(List<Ordenesdetalle> ordenesdetalles) {
+	public void setOrdenesdetalles(List<Ordenesdetalles> ordenesdetalles) {
 		this.ordenesdetalles = ordenesdetalles;
 	}
 
-	public Ordenesdetalle addOrdenesdetalle(Ordenesdetalle ordenesdetalle) {
+	public Ordenesdetalles addOrdenesdetalle(Ordenesdetalles ordenesdetalle) {
 		getOrdenesdetalles().add(ordenesdetalle);
 		ordenesdetalle.setOrden(this);
 
 		return ordenesdetalle;
 	}
 
-	public Ordenesdetalle removeOrdenesdetalle(Ordenesdetalle ordenesdetalle) {
+	public Ordenesdetalles removeOrdenesdetalle(Ordenesdetalles ordenesdetalle) {
 		getOrdenesdetalles().remove(ordenesdetalle);
 		ordenesdetalle.setOrden(null);
 

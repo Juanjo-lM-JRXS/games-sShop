@@ -19,11 +19,12 @@ public class VideojuegosPlataforma implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int videojuegos_plataformasID;
 
+	@Column(name="videojuegos_plataformasEstado")
 	private int videojuegos_plataformasEstado;
 
 	//bi-directional many-to-one association to Ordenesdetalle
 	@OneToMany(mappedBy="videojuegosPlataforma")
-	private List<Ordenesdetalle> ordenesdetalles;
+	private List<Ordenesdetalles> ordenesdetalles;
 
 	//bi-directional many-to-one association to Plataforma
 	@ManyToOne
@@ -54,22 +55,22 @@ public class VideojuegosPlataforma implements Serializable {
 		this.videojuegos_plataformasEstado = videojuegos_plataformasEstado;
 	}
 
-	public List<Ordenesdetalle> getOrdenesdetalles() {
+	public List<Ordenesdetalles> getOrdenesdetalles() {
 		return this.ordenesdetalles;
 	}
 
-	public void setOrdenesdetalles(List<Ordenesdetalle> ordenesdetalles) {
+	public void setOrdenesdetalles(List<Ordenesdetalles> ordenesdetalles) {
 		this.ordenesdetalles = ordenesdetalles;
 	}
 
-	public Ordenesdetalle addOrdenesdetalle(Ordenesdetalle ordenesdetalle) {
+	public Ordenesdetalles addOrdenesdetalle(Ordenesdetalles ordenesdetalle) {
 		getOrdenesdetalles().add(ordenesdetalle);
 		ordenesdetalle.setVideojuegosPlataforma(this);
 
 		return ordenesdetalle;
 	}
 
-	public Ordenesdetalle removeOrdenesdetalle(Ordenesdetalle ordenesdetalle) {
+	public Ordenesdetalles removeOrdenesdetalle(Ordenesdetalles ordenesdetalle) {
 		getOrdenesdetalles().remove(ordenesdetalle);
 		ordenesdetalle.setVideojuegosPlataforma(null);
 

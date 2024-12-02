@@ -1,3 +1,4 @@
+
 package co.edu.ue.entity;
 
 import java.io.Serializable;
@@ -18,22 +19,36 @@ public class Usuario implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int usuariosID;
-
-	private String usuariosContraseña;
-
-	private String usuariosCorreo;
-
-	private int usuariosEstado;
-
-	private String usuariosNombreUsuario;
-
-	private String usuariosPrimerApellido;
-
+	
+	@Column(name="usuariosPrimerNombre")
 	private String usuariosPrimerNombre;
-
+	
+	@Column(name="usuariosSegundoNombre")
+	private String usuariosSegundoNombre;
+	
+	@Column(name="usuariosPrimerApellido")
+	private String usuariosPrimerApellido;
+	
+	@Column(name="usuariosSegundoApellido")
 	private String usuariosSegundoApellido;
 
-	private String usuariosSegundoNombre;
+	@Column(name="usuariosNombreUsuario")
+	private String usuariosNombreUsuario;
+	
+	@Column(name="usuariosCorreo")
+	private String usuariosCorreo;
+	
+	@Column(name="usuariosContraseña")
+	private String usuariosContraseña;
+
+	@Column(name="usuariosEstado")
+	private int usuariosEstado;
+
+
+
+	
+
+
 
 	//bi-directional many-to-one association to Orden
 	@OneToMany(mappedBy="usuario")
