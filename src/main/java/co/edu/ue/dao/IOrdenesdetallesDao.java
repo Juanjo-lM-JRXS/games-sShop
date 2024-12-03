@@ -2,14 +2,14 @@ package co.edu.ue.dao;
 
 import java.util.List;
 
-import co.edu.ue.entity.Ordenesdetalles;
+import co.edu.ue.entity.Ordenesdetalle;
 
 public interface IOrdenesdetallesDao {
-	List<Ordenesdetalles> guardarDetalleOrden (Ordenesdetalles ordenesdetalles);
-	Ordenesdetalles actualizarDetalleOrden(Ordenesdetalles ordenesdetalles);
+	List<Ordenesdetalle> guardarDetalleOrden (Ordenesdetalle ordenesdetalles);
+	Ordenesdetalle actualizarDetalleOrden(Ordenesdetalle ordenesdetalles);
 	
-	List<Ordenesdetalles> listaOrdenesDetallesCompleta();
-	Ordenesdetalles busquedaPorId(int id);
-	Ordenesdetalles busquedaPorIdOrden(int id);
+	List<Ordenesdetalle> listaOrdenesDetallesCompleta();
+	Ordenesdetalle busquedaPorId(int id);
+	Ordenesdetalle busquedaPorIdOrden(int id);
 
 }

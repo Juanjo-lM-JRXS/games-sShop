@@ -24,7 +24,7 @@ public class VideojuegosPlataforma implements Serializable {
 
 	//bi-directional many-to-one association to Ordenesdetalle
 	@OneToMany(mappedBy="videojuegosPlataforma")
-	private List<Ordenesdetalles> ordenesdetalles;
+	private List<Ordenesdetalle> ordenesdetalles;
 
 	//bi-directional many-to-one association to Plataforma
 	@ManyToOne
@@ -55,22 +55,22 @@ public class VideojuegosPlataforma implements Serializable {
 		this.videojuegos_plataformasEstado = videojuegos_plataformasEstado;
 	}
 
-	public List<Ordenesdetalles> getOrdenesdetalles() {
+	public List<Ordenesdetalle> getOrdenesdetalles() {
 		return this.ordenesdetalles;
 	}
 
-	public void setOrdenesdetalles(List<Ordenesdetalles> ordenesdetalles) {
+	public void setOrdenesdetalles(List<Ordenesdetalle> ordenesdetalles) {
 		this.ordenesdetalles = ordenesdetalles;
 	}
 
-	public Ordenesdetalles addOrdenesdetalle(Ordenesdetalles ordenesdetalle) {
+	public Ordenesdetalle addOrdenesdetalle(Ordenesdetalle ordenesdetalle) {
 		getOrdenesdetalles().add(ordenesdetalle);
 		ordenesdetalle.setVideojuegosPlataforma(this);
 
 		return ordenesdetalle;
 	}
 
-	public Ordenesdetalles removeOrdenesdetalle(Ordenesdetalles ordenesdetalle) {
+	public Ordenesdetalle removeOrdenesdetalle(Ordenesdetalle ordenesdetalle) {
 		getOrdenesdetalles().remove(ordenesdetalle);
 		ordenesdetalle.setVideojuegosPlataforma(null);
 

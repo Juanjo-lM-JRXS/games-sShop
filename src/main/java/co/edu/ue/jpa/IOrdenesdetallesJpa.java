@@ -2,8 +2,8 @@ package co.edu.ue.jpa;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import co.edu.ue.entity.Ordenesdetalles;
+import co.edu.ue.entity.Ordenesdetalle;
 
-public interface IOrdenesdetallesJpa extends JpaRepository<Ordenesdetalles, Integer>{
-	Ordenesdetalles findByOrdenId(int orden);
+public interface IOrdenesdetallesJpa extends JpaRepository<Ordenesdetalle, Integer>{
+	Ordenesdetalle findByOrdenId(int orden);
 }

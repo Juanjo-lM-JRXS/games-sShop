@@ -11,7 +11,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name="ordenesdetalles")
 @NamedQuery(name="Ordenesdetalle.findAll", query="SELECT o FROM Ordenesdetalle o")
-public class Ordenesdetalles implements Serializable {
+public class Ordenesdetalle implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -32,7 +32,7 @@ public class Ordenesdetalles implements Serializable {
 	@JoinColumn(name="videojuegos_plataformasID")
 	private VideojuegosPlataforma videojuegosPlataforma;
 
-	public Ordenesdetalles() {
+	public Ordenesdetalle() {
 	}
 
 	public int getOrdenesDetallesID() {
