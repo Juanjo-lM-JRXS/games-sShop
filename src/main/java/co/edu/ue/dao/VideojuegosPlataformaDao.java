@@ -1,41 +1,40 @@
 package co.edu.ue.dao;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.function.Function;
 
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuery;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.stereotype.Repository;
 
 import co.edu.ue.entity.VideojuegosPlataforma;
+import co.edu.ue.jpa.IVideojuegosPlataformaJpa;
 
+@Repository
 public class VideojuegosPlataformaDao implements IVideojuegosPlataformaDao{
 
+	@Autowired
+	IVideojuegosPlataformaJpa jpa;
+	
 	@Override
 	public List<VideojuegosPlataforma> guardarVideojuegosPlataforma(VideojuegosPlataforma videojuegosplataforma) {
-		// TODO Auto-generated method stub
-		return null;
+		jpa.save(videojuegosplataforma);
+		return listaVideojuegosPlataformaCompleta();
 	}
 
 	@Override
 	public VideojuegosPlataforma actualizarVideojuegosPlataforma(VideojuegosPlataforma videojuegosplataforma) {
-		// TODO Auto-generated method stub
-		return null;
+		return jpa.save(videojuegosplataforma);
 	}
 
 	@Override
 	public List<VideojuegosPlataforma> listaVideojuegosPlataformaCompleta() {
-		// TODO Auto-generated method stub
-		return null;
+		return jpa.findAll();
 	}
 
 	@Override
 	public VideojuegosPlataforma busquedaPorId(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return jpa.findById(id).orElse(null);
 	}
 }

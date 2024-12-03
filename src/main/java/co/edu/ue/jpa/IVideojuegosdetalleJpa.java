@@ -5,5 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import co.edu.ue.entity.Videojuegosdetalle;
 
 public interface IVideojuegosdetalleJpa extends JpaRepository<Videojuegosdetalle, Integer>{
-
+	Videojuegosdetalle findByNombre(String videojuegosNombre);
+	Videojuegosdetalle findByPlataforma(int videojuegosPlataformas);
 }
