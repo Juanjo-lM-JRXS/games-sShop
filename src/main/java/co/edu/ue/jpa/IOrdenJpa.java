@@ -5,5 +5,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import co.edu.ue.entity.Orden;
 
 public interface IOrdenJpa extends JpaRepository<Orden, Integer>{
-	Orden findByOrdenusuario(String usuario);
 }

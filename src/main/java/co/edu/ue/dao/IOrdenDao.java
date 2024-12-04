@@ -12,5 +12,4 @@ public interface IOrdenDao {
 	// consultas
 	List<Orden> listaCompleta();
 	Orden busquedaPorId(int id);
-	Orden busquedaPorUsuario(String usuario);
 }

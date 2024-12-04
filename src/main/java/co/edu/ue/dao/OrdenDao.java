@@ -36,9 +36,5 @@ public class OrdenDao implements IOrdenDao{
 		return jpa.findById(id).orElse(null);
 	}
 
-	@Override
-	public Orden busquedaPorUsuario(String usuario) {
-		return jpa.findByOrdenusuario(usuario);
-	}
 
 }

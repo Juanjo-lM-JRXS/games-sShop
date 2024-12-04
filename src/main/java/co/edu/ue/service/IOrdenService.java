@@ -12,5 +12,4 @@ public interface IOrdenService {
 	// consultas
 	List<Orden> listAll();
 	Orden findIdOrden(int id);
-	Orden findUsuarioOrden(String usuario);
 }

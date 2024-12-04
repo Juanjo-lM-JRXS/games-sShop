@@ -34,9 +34,5 @@ public class OrdenService implements IOrdenService{
 		return dao.busquedaPorId(id);
 	}
 
-	@Override
-	public Orden findUsuarioOrden(String usuario) {
-		return dao.busquedaPorUsuario(usuario);
-	}
 
 }
