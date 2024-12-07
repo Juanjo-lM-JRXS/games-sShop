@@ -23,6 +23,7 @@ public class Ordene implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date ordenDate;
 
+	@Column(name="ordenEstado")
 	private int ordenEstado;
 
 	//bi-directional many-to-one association to Ordenesdetalle

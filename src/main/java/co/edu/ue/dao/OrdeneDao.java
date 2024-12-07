@@ -5,15 +5,38 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import co.edu.ue.entity.Orden;
-import co.edu.ue.jpa.IOrdenJpa;
+import co.edu.ue.entity.Ordene;
+import co.edu.ue.jpa.IOrdeneJpa;
 
 @Repository
-public class OrdenDao implements IOrdenDao{
+public class OrdeneDao implements IOrdeneDao{
 
 	@Autowired
-	IOrdenJpa jpa;
+	IOrdeneJpa jpa;
+
+	@Override
+	public List<Ordene> guardarOrden(Ordene ordene) {
+		jpa.save(ordene);
+		return listaCompleta();
+	}
+
+	@Override
+	public Ordene actualizaOrden(Ordene ordene) {
+		return jpa.save(ordene);
+	}
+
+	@Override
+	public List<Ordene> listaCompleta() {		
+		return jpa.findAll();
+	}
+
+	@Override
+	public Ordene busquedaPorId(int id) {
+		return jpa.findById(id).orElse(null);
+	}
 	
+	
+/*	
 	@Override
 	public List<Orden> guardarOrden(Orden orden) { 
 		jpa.save(orden);
@@ -34,7 +57,7 @@ public class OrdenDao implements IOrdenDao{
 	@Override
 	public Orden busquedaPorId(int id) {
 		return jpa.findById(id).orElse(null);
-	}
+	}*/
 
 
 }

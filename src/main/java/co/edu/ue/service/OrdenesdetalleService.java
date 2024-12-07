@@ -5,14 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import co.edu.ue.dao.IOrdenesdetallesDao;
+import co.edu.ue.dao.IOrdenesdetalleDao;
 import co.edu.ue.entity.Ordenesdetalle;
 
 @Service
-public class OrdenesdetallesService implements IOrdenesdetallesService{
+public class OrdenesdetalleService implements IOrdenesdetalleService{
 	
 	@Autowired
-	IOrdenesdetallesDao dao;
+	IOrdenesdetalleDao dao;
 
 	@Override
 	public List<Ordenesdetalle> saveDetalleOrden(Ordenesdetalle ordenesdetalles) {
@@ -27,11 +27,6 @@ public class OrdenesdetallesService implements IOrdenesdetallesService{
 	@Override
 	public List<Ordenesdetalle> listOrdenesDetallesCompleta() {
 		return dao.listaOrdenesDetallesCompleta();
-	}
-
-	@Override
-	public Ordenesdetalle findPorId(int id) {
-		return dao.busquedaPorId(id);
 	}
 
 	@Override

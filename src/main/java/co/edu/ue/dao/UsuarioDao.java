@@ -11,7 +11,7 @@ import co.edu.ue.entity.Usuario;
 import co.edu.ue.jpa.IUsuarioJpa;
 
 @Repository
-public class UsuariDao implements IUsuariDao{
+public class UsuarioDao implements IUsuarioDao{
 
 	@Autowired
 	IUsuarioJpa jpa;

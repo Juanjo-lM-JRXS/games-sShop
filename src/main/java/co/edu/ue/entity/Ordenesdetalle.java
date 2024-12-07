@@ -18,14 +18,15 @@ public class Ordenesdetalle implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int ordenesDetallesID;
 
+	@Column(name="ordenesDetallesCantidad")
 	private int ordenesDetallesCantidad;
 
-	//bi-directional many-to-one association to Ordene
+	//bi-directional many-to-one association to Ordenes
 	@ManyToOne
 	@JoinColumn(name="ordenesID")
 	private Ordene ordene;
 
-	//bi-directional many-to-one association to Videojuego
+	//bi-directional many-to-one association to Videojuegos
 	@ManyToOne
 	@JoinColumn(name="videojuegosID")
 	private Videojuego videojuego;

@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import co.edu.ue.entity.Ordenesdetalle;
-import co.edu.ue.service.IOrdenesdetallesService;
+import co.edu.ue.service.IOrdenesdetalleService;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
-public class OrdenesdetallesController {
+public class OrdenesdetalleController {
 
 	@Autowired
-	IOrdenesdetallesService service;
+	IOrdenesdetalleService service;
 	
 	@PostMapping(value="guardarDetallesOrden")
 	public List<Ordenesdetalle> postDetallesOrden(@RequestBody Ordenesdetalle ordenesdetalle) {

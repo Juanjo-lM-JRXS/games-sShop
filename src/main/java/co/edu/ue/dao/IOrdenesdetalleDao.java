@@ -4,12 +4,11 @@ import java.util.List;
 
 import co.edu.ue.entity.Ordenesdetalle;
 
-public interface IOrdenesdetallesDao {
+public interface IOrdenesdetalleDao {
 	List<Ordenesdetalle> guardarDetalleOrden (Ordenesdetalle ordenesdetalles);
 	Ordenesdetalle actualizarDetalleOrden(Ordenesdetalle ordenesdetalles);
 	
 	List<Ordenesdetalle> listaOrdenesDetallesCompleta();
-	Ordenesdetalle busquedaPorId(int id);
 	Ordenesdetalle busquedaPorIdOrden(int id);
 
 }

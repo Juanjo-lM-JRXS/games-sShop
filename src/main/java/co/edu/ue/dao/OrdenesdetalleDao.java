@@ -7,13 +7,13 @@ import org.springframework.stereotype.Repository;
 
 import co.edu.ue.entity.Ordenesdetalle;
 
-import co.edu.ue.jpa.IOrdenesdetallesJpa;
+import co.edu.ue.jpa.IOrdenesdetalleJpa;
 
 @Repository
-public class OrdenesdetallesDao implements IOrdenesdetallesDao{
+public class OrdenesdetalleDao implements IOrdenesdetalleDao{
 
 	@Autowired
-	IOrdenesdetallesJpa jpa;
+	IOrdenesdetalleJpa jpa;
 
 	@Override
 	public List<Ordenesdetalle> guardarDetalleOrden(Ordenesdetalle ordenesdetalles) {
@@ -29,11 +29,6 @@ public class OrdenesdetallesDao implements IOrdenesdetallesDao{
 	@Override
 	public List<Ordenesdetalle> listaOrdenesDetallesCompleta() {
 		return jpa.findAll();
-	}
-
-	@Override
-	public Ordenesdetalle busquedaPorId(int id) {
-		return jpa.findById(id).orElse(null);
 	}
 
 	@Override

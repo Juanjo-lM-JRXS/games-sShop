@@ -4,16 +4,16 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import co.edu.ue.entity.Videojuegosdetalle;
-import co.edu.ue.service.IVideojuegosdetalleService;
+import co.edu.ue.entity.Videojuego;
+import co.edu.ue.service.IVideojuegoService;
 
-public class VideojuegosdetalleController {
+public class VideojuegoController {
 
 	@Autowired
-	IVideojuegosdetalleService service;
+	IVideojuegoService service;
 	
 	@GetMapping(value="listarVideojuegoDetalles")
-	public List<Videojuegosdetalle> getVideojuegosDetalles() {
+	public List<Videojuego> getVideojuegosDetalles() {
 		return service.listVideojuegosdetalleCompleta();
 	}
 	

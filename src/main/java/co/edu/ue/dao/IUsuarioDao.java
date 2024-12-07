@@ -4,7 +4,7 @@ import java.util.List;
 
 import co.edu.ue.entity.Usuario;
 
-public interface IUsuariDao {
+public interface IUsuarioDao {
 	List<Usuario> guardarUsuario(Usuario usuario);
 	Usuario actualizarUsuario(Usuario usuario);
 	
