@@ -16,21 +16,19 @@ public class Ordenesdetalle implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="ordenesDetallesID")
 	private int ordenesDetallesID;
 
-	@Column(name="ordenesDetallesCantidad")
 	private int ordenesDetallesCantidad;
 
-	//bi-directional many-to-one association to Orden
+	//bi-directional many-to-one association to Ordene
 	@ManyToOne
 	@JoinColumn(name="ordenesID")
-	private Orden orden;
+	private Ordene ordene;
 
-	//bi-directional many-to-one association to VideojuegosPlataforma
+	//bi-directional many-to-one association to Videojuego
 	@ManyToOne
-	@JoinColumn(name="videojuegos_plataformasID")
-	private VideojuegosPlataforma videojuegosPlataforma;
+	@JoinColumn(name="videojuegosID")
+	private Videojuego videojuego;
 
 	public Ordenesdetalle() {
 	}
@@ -51,20 +49,20 @@ public class Ordenesdetalle implements Serializable {
 		this.ordenesDetallesCantidad = ordenesDetallesCantidad;
 	}
 
-	public Orden getOrden() {
-		return this.orden;
+	public Ordene getOrdene() {
+		return this.ordene;
 	}
 
-	public void setOrden(Orden orden) {
-		this.orden = orden;
+	public void setOrdene(Ordene ordene) {
+		this.ordene = ordene;
 	}
 
-	public VideojuegosPlataforma getVideojuegosPlataforma() {
-		return this.videojuegosPlataforma;
+	public Videojuego getVideojuego() {
+		return this.videojuego;
 	}
 
-	public void setVideojuegosPlataforma(VideojuegosPlataforma videojuegosPlataforma) {
-		this.videojuegosPlataforma = videojuegosPlataforma;
+	public void setVideojuego(Videojuego videojuego) {
+		this.videojuego = videojuego;
 	}
 
 }

@@ -19,15 +19,13 @@ public class Plataforma implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int plataformasID;
 
-	@Column(name="plataformasDescripcion")
 	private String plataformasDescripcion;
 
-	@Column(name="plataformasNombre")
 	private String plataformasNombre;
 
-	//bi-directional many-to-one association to VideojuegosPlataforma
+	//bi-directional many-to-one association to Videojuego
 	@OneToMany(mappedBy="plataforma")
-	private List<VideojuegosPlataforma> videojuegosPlataformas;
+	private List<Videojuego> videojuegos;
 
 	public Plataforma() {
 	}
@@ -56,26 +54,26 @@ public class Plataforma implements Serializable {
 		this.plataformasNombre = plataformasNombre;
 	}
 
-	public List<VideojuegosPlataforma> getVideojuegosPlataformas() {
-		return this.videojuegosPlataformas;
+	public List<Videojuego> getVideojuegos() {
+		return this.videojuegos;
 	}
 
-	public void setVideojuegosPlataformas(List<VideojuegosPlataforma> videojuegosPlataformas) {
-		this.videojuegosPlataformas = videojuegosPlataformas;
+	public void setVideojuegos(List<Videojuego> videojuegos) {
+		this.videojuegos = videojuegos;
 	}
 
-	public VideojuegosPlataforma addVideojuegosPlataforma(VideojuegosPlataforma videojuegosPlataforma) {
-		getVideojuegosPlataformas().add(videojuegosPlataforma);
-		videojuegosPlataforma.setPlataforma(this);
+	public Videojuego addVideojuego(Videojuego videojuego) {
+		getVideojuegos().add(videojuego);
+		videojuego.setPlataforma(this);
 
-		return videojuegosPlataforma;
+		return videojuego;
 	}
 
-	public VideojuegosPlataforma removeVideojuegosPlataforma(VideojuegosPlataforma videojuegosPlataforma) {
-		getVideojuegosPlataformas().remove(videojuegosPlataforma);
-		videojuegosPlataforma.setPlataforma(null);
+	public Videojuego removeVideojuego(Videojuego videojuego) {
+		getVideojuegos().remove(videojuego);
+		videojuego.setPlataforma(null);
 
-		return videojuegosPlataforma;
+		return videojuego;
 	}
 
 }

@@ -1,4 +1,3 @@
-
 package co.edu.ue.entity;
 
 import java.io.Serializable;
@@ -16,53 +15,27 @@ import java.util.List;
 public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int usuariosID;
-	
-	@Column(name="usuariosPrimerNombre")
-	private String usuariosPrimerNombre;
-	
-	@Column(name="usuariosSegundoNombre")
-	private String usuariosSegundoNombre;
-	
-	@Column(name="usuariosPrimerApellido")
-	private String usuariosPrimerApellido;
-	
-	@Column(name="usuariosSegundoApellido")
-	private String usuariosSegundoApellido;
-
-	@Column(name="usuariosNombreUsuario")
-	private String usuariosNombreUsuario;
-	
-	@Column(name="usuariosCorreo")
-	private String usuariosCorreo;
-	
-	@Column(name="usuariosContraseña")
 	private String usuariosContraseña;
 
-	@Column(name="usuariosEstado")
+	private String usuariosCorreo;
+
 	private int usuariosEstado;
 
+	private String usuariosNombreUsuario;
 
+	private String usuariosPrimerApellido;
 
-	
+	private String usuariosPrimerNombre;
 
+	private String usuariosSegundoNombre;
 
+	private String usuariosSegundorApellido;
 
-	//bi-directional many-to-one association to Orden
+	//bi-directional many-to-one association to Ordene
 	@OneToMany(mappedBy="usuario")
-	private List<Orden> ordens;
+	private List<Ordene> ordenes;
 
 	public Usuario() {
-	}
-
-	public int getUsuariosID() {
-		return this.usuariosID;
-	}
-
-	public void setUsuariosID(int usuariosID) {
-		this.usuariosID = usuariosID;
 	}
 
 	public String getUsuariosContraseña() {
@@ -113,14 +86,6 @@ public class Usuario implements Serializable {
 		this.usuariosPrimerNombre = usuariosPrimerNombre;
 	}
 
-	public String getUsuariosSegundoApellido() {
-		return this.usuariosSegundoApellido;
-	}
-
-	public void setUsuariosSegundoApellido(String usuariosSegundoApellido) {
-		this.usuariosSegundoApellido = usuariosSegundoApellido;
-	}
-
 	public String getUsuariosSegundoNombre() {
 		return this.usuariosSegundoNombre;
 	}
@@ -129,26 +94,34 @@ public class Usuario implements Serializable {
 		this.usuariosSegundoNombre = usuariosSegundoNombre;
 	}
 
-	public List<Orden> getOrdens() {
-		return this.ordens;
+	public String getUsuariosSegundorApellido() {
+		return this.usuariosSegundorApellido;
 	}
 
-	public void setOrdens(List<Orden> ordens) {
-		this.ordens = ordens;
+	public void setUsuariosSegundorApellido(String usuariosSegundorApellido) {
+		this.usuariosSegundorApellido = usuariosSegundorApellido;
 	}
 
-	public Orden addOrden(Orden orden) {
-		getOrdens().add(orden);
-		orden.setUsuario(this);
-
-		return orden;
+	public List<Ordene> getOrdenes() {
+		return this.ordenes;
 	}
 
-	public Orden removeOrden(Orden orden) {
-		getOrdens().remove(orden);
-		orden.setUsuario(null);
+	public void setOrdenes(List<Ordene> ordenes) {
+		this.ordenes = ordenes;
+	}
 
-		return orden;
+	public Ordene addOrdene(Ordene ordene) {
+		getOrdenes().add(ordene);
+		ordene.setUsuario(this);
+
+		return ordene;
+	}
+
+	public Ordene removeOrdene(Ordene ordene) {
+		getOrdenes().remove(ordene);
+		ordene.setUsuario(null);
+
+		return ordene;
 	}
 
 }
