@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import co.edu.ue.entity.Ordenesdetalle;
 
 public interface IOrdenesdetalleJpa extends JpaRepository<Ordenesdetalle, Integer>{
-	Ordenesdetalle findByOrdenId(int orden);
+	//Ordenesdetalle findByOrdenesID(int ordenesID);
 }

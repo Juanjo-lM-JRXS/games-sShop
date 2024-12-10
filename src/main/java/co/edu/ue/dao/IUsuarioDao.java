@@ -9,7 +9,7 @@ public interface IUsuarioDao {
 	Usuario actualizarUsuario(Usuario usuario);
 	
 	List<Usuario> listaUsuarioCompleta();
-	Usuario busquedaPorId(int id);
-	Usuario busquedaPorCorreo(String usuariosCorreo);
-	Usuario busquedaPorNombreUsuario(String usuariosNombreUsuario);
+	Usuario busquedaPorId(int usuariosID);
+	/*Usuario busquedaPorCorreo(String usuariosCorreo);
+	Usuario busquedaPorNombreUsuario(String usuariosNombreUsuario);*/
 }

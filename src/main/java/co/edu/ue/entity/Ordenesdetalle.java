@@ -24,7 +24,7 @@ public class Ordenesdetalle implements Serializable {
 	//bi-directional many-to-one association to Ordenes
 	@ManyToOne
 	@JoinColumn(name="ordenesID")
-	private Ordene ordene;
+	private Ordene ordenesID;
 
 	//bi-directional many-to-one association to Videojuegos
 	@ManyToOne
@@ -50,12 +50,13 @@ public class Ordenesdetalle implements Serializable {
 		this.ordenesDetallesCantidad = ordenesDetallesCantidad;
 	}
 
-	public Ordene getOrdene() {
-		return this.ordene;
+	
+	public Ordene getOrdenesID() {
+		return ordenesID;
 	}
 
-	public void setOrdene(Ordene ordene) {
-		this.ordene = ordene;
+	public void setOrdenesID(Ordene ordenesID) {
+		this.ordenesID = ordenesID;
 	}
 
 	public Videojuego getVideojuego() {

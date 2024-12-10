@@ -10,5 +10,5 @@ public interface IVideojuegoDao {
 	Videojuego actualizarVideojuego(Videojuego videojuego);
 	
 	List<Videojuego> listaVideojuegoCompleta();
-	Videojuego busquedaPorIdVideojuego(int id);
+	Videojuego busquedaPorIdVideojuego(int videojuegosID);
 }

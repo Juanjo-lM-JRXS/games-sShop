@@ -10,6 +10,6 @@ public interface IUsuarioService {
 	
 	List<Usuario> listUsuarioCompleta();
 	Usuario findPorId(int id);
-	Usuario findPorCorreo(String usuariosCorreo);
-	Usuario findPorNombreUsuario(String usuariosNombreUsuario);
+	/*Usuario findPorCorreo(String usuariosCorreo);
+	Usuario findPorNombreUsuario(String usuariosNombreUsuario);*/
 }

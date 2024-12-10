@@ -37,13 +37,13 @@ public class UsuarioDao implements IUsuarioDao{
 		return jpa.findById(id).orElse(null);
 	}
 
-	@Override
+	/*@Override
 	public Usuario busquedaPorCorreo(String usuariosCorreo) {
-		return jpa.findByCorreo(usuariosCorreo);
+		return jpa.findByUsuariosCorreo(usuariosCorreo);
 	}
 
 	@Override
 	public Usuario busquedaPorNombreUsuario(String usuariosNombreUsuario) {
 		return jpa.findByNombreUsuario(usuariosNombreUsuario);
-	}
+	}*/
 }

@@ -10,6 +10,6 @@ public interface IOrdenesdetalleService {
 	Ordenesdetalle upDetalleOrden(Ordenesdetalle ordenesdetalles);
 	
 	List<Ordenesdetalle> listOrdenesDetallesCompleta();
-	Ordenesdetalle findPorIdOrden(int id);
+	//Ordenesdetalle findPorIdOrden(int id);
 	
 }

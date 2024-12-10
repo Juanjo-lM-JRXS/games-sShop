@@ -14,6 +14,10 @@ import java.util.List;
 @NamedQuery(name="Usuario.findAll", query="SELECT u FROM Usuario u")
 public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int usuariosID ;
 
 	@Column(name="usuariosContraseña")
 	private String usuariosContraseña;
@@ -42,7 +46,7 @@ public class Usuario implements Serializable {
 
 	//bi-directional many-to-one association to Ordene
 	@OneToMany(mappedBy="usuario")
-	private List<Ordene> ordenes;
+	private List<Ordene> ordene;
 
 	public Usuario() {
 	}
@@ -112,11 +116,11 @@ public class Usuario implements Serializable {
 	}
 
 	public List<Ordene> getOrdenes() {
-		return this.ordenes;
+		return this.ordene;
 	}
 
 	public void setOrdenes(List<Ordene> ordenes) {
-		this.ordenes = ordenes;
+		this.ordene = ordenes;
 	}
 
 	public Ordene addOrdene(Ordene ordene) {

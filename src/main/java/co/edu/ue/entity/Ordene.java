@@ -19,7 +19,7 @@ public class Ordene implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int ordenesID;
-
+ 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date ordenDate;
 
@@ -27,7 +27,7 @@ public class Ordene implements Serializable {
 	private int ordenEstado;
 
 	//bi-directional many-to-one association to Ordenesdetalle
-	@OneToMany(mappedBy="ordene")
+	@OneToMany(mappedBy="ordenesID")
 	private List<Ordenesdetalle> ordenesdetalles;
 
 	//bi-directional many-to-one association to Usuario
@@ -72,14 +72,14 @@ public class Ordene implements Serializable {
 
 	public Ordenesdetalle addOrdenesdetalle(Ordenesdetalle ordenesdetalle) {
 		getOrdenesdetalles().add(ordenesdetalle);
-		ordenesdetalle.setOrdene(this);
+		ordenesdetalle.setOrdenesID(this);
 
 		return ordenesdetalle;
 	}
 
 	public Ordenesdetalle removeOrdenesdetalle(Ordenesdetalle ordenesdetalle) {
 		getOrdenesdetalles().remove(ordenesdetalle);
-		ordenesdetalle.setOrdene(null);
+		ordenesdetalle.setOrdenesID(null);
 
 		return ordenesdetalle;
 	}

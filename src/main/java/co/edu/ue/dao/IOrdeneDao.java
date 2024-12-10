@@ -11,5 +11,5 @@ public interface IOrdeneDao {
 	
 	// consultas
 	List<Ordene> listaCompleta();
-	Ordene busquedaPorId(int id);
+	Ordene busquedaPorOrdenesID(int ordenesID);
 }

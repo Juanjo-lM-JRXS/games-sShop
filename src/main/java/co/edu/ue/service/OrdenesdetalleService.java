@@ -29,9 +29,9 @@ public class OrdenesdetalleService implements IOrdenesdetalleService{
 		return dao.listaOrdenesDetallesCompleta();
 	}
 
-	@Override
+	/*@Override
 	public Ordenesdetalle findPorIdOrden(int id) {
 		return dao.busquedaPorIdOrden(id);
-	}
+	}*/
 
 }

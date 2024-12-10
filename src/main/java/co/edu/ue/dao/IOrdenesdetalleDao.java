@@ -9,6 +9,5 @@ public interface IOrdenesdetalleDao {
 	Ordenesdetalle actualizarDetalleOrden(Ordenesdetalle ordenesdetalles);
 	
 	List<Ordenesdetalle> listaOrdenesDetallesCompleta();
-	Ordenesdetalle busquedaPorIdOrden(int id);
-
+	//Ordenesdetalle busquedaPorIdOrden(int ordenesID);
 }

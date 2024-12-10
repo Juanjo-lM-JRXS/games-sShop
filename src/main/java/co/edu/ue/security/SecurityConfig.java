@@ -31,6 +31,7 @@ public class SecurityConfig {
 				.authorizeHttpRequests(aut -> aut.requestMatchers(HttpMethod.POST, "/datos").hasAnyRole("ADMINS")
 						// .requestMatchers(HttpMethod.DELETE,"/datos/**").hasAnyRole("ADMINS","OTHER")
 						.requestMatchers(HttpMethod.GET, "/dato-all").authenticated()
+						.requestMatchers(HttpMethod.GET, "/listarPlataformas").hasAnyRole("USERS", "ADMINS")
 						.requestMatchers(HttpMethod.GET, "/dato-id").hasAnyRole("USERS")
 						.requestMatchers(HttpMethod.GET, "/dato-email").hasAnyRole("USERS", "ADMINS")
 						.requestMatchers(HttpMethod.PUT, "/dato-up").hasAnyRole("ADMINS")

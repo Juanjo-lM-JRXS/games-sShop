@@ -31,7 +31,7 @@ public class OrdeneService implements IOrdeneService{
 
 	@Override
 	public Ordene findIdOrden(int id) {
-		return dao.busquedaPorId(id);
+		return dao.busquedaPorOrdenesID(id);
 	}
 
 

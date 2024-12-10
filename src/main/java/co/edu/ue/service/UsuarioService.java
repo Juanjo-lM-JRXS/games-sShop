@@ -34,7 +34,7 @@ public class UsuarioService implements IUsuarioService{
 		return dao.busquedaPorId(id);
 	}
 
-	@Override
+	/*@Override
 	public Usuario findPorCorreo(String usuariosCorreo) {
 		return dao.busquedaPorCorreo(usuariosCorreo);
 	}
@@ -42,6 +42,6 @@ public class UsuarioService implements IUsuarioService{
 	@Override
 	public Usuario findPorNombreUsuario(String usuariosNombreUsuario) {
 		return dao.busquedaPorNombreUsuario(usuariosNombreUsuario);
-	}
+	}*/
 
 }

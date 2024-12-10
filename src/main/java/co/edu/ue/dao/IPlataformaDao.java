@@ -9,6 +9,6 @@ public interface IPlataformaDao {
 	Plataforma actualizarPlataforma(Plataforma plataforma);
 	
 	List<Plataforma> listaPlataformaCompleta();
-	Plataforma busquedaPorId(int id);
+	Plataforma busquedaPorId(int plataformasID);
 
 }

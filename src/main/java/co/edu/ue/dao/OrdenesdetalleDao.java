@@ -31,10 +31,10 @@ public class OrdenesdetalleDao implements IOrdenesdetalleDao{
 		return jpa.findAll();
 	}
 
-	@Override
+	/*@Override
 	public Ordenesdetalle busquedaPorIdOrden(int id) {
-		return jpa.findByOrdenId(id);
-	}
+		return jpa.findByOrdenesID(id);
+	}*/
 	
 	
 }

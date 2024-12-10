@@ -31,7 +31,7 @@ public class OrdeneDao implements IOrdeneDao{
 	}
 
 	@Override
-	public Ordene busquedaPorId(int id) {
+	public Ordene busquedaPorOrdenesID(int id) {
 		return jpa.findById(id).orElse(null);
 	}
 	

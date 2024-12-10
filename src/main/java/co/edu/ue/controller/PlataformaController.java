@@ -4,18 +4,22 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+import co.edu.ue.dao.IPlataformaDao;
 import co.edu.ue.entity.Plataforma;
-import co.edu.ue.service.IPlataformaService;
 
+@RestController
+@RequestMapping(value = "/plataforma")
 public class PlataformaController {
 
 	@Autowired
-	IPlataformaService service;
+	IPlataformaDao dao;
 		
 	@GetMapping(value="listarPlataformas")
 	public List<Plataforma> getlistarPlataformas() {
-		return service.listPlataformaCompleta();
+		return dao.listaPlataformaCompleta();
 	}
 	
 }
