@@ -17,7 +17,7 @@ public class PlataformaController {
 	@Autowired
 	IPlataformaDao dao;
 		
-	@GetMapping(value="listarPlataformas")
+	@GetMapping(value="/list")
 	public List<Plataforma> getlistarPlataformas() {
 		return dao.listaPlataformaCompleta();
 	}

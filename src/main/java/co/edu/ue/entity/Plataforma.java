@@ -1,3 +1,4 @@
+
 package co.edu.ue.entity;
 
 import java.io.Serializable;
