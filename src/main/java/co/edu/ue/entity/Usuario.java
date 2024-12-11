@@ -14,41 +14,40 @@ import java.util.List;
 @NamedQuery(name="Usuario.findAll", query="SELECT u FROM Usuario u")
 public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int usuariosID ;
+	private int usuariosID;
 
-	@Column(name="usuariosContraseña")
 	private String usuariosContraseña;
-	
-	@Column(name="usuariosCorreo")
+
 	private String usuariosCorreo;
-	
-	@Column(name="usuariosEstado")
+
 	private int usuariosEstado;
-	
-	@Column(name="usuariosNombreUsuario")
+
 	private String usuariosNombreUsuario;
-	
-	@Column(name="usuariosPrimerApellido")
+
 	private String usuariosPrimerApellido;
-	
-	@Column(name="usuariosPrimerNombre")
+
 	private String usuariosPrimerNombre;
-	
-	@Column(name="usuariosSegundoNombre")
+
 	private String usuariosSegundoNombre;
-	
-	@Column(name="usuariosSegundorApellido")
+
 	private String usuariosSegundorApellido;
-	
 
 	//bi-directional many-to-one association to Ordene
 	@OneToMany(mappedBy="usuario")
-	private List<Ordene> ordene;
+	private List<Ordene> ordenes;
 
 	public Usuario() {
+	}
+
+	public int getUsuariosID() {
+		return this.usuariosID;
+	}
+
+	public void setUsuariosID(int usuariosID) {
+		this.usuariosID = usuariosID;
 	}
 
 	public String getUsuariosContraseña() {
@@ -116,11 +115,11 @@ public class Usuario implements Serializable {
 	}
 
 	public List<Ordene> getOrdenes() {
-		return this.ordene;
+		return this.ordenes;
 	}
 
 	public void setOrdenes(List<Ordene> ordenes) {
-		this.ordene = ordenes;
+		this.ordenes = ordenes;
 	}
 
 	public Ordene addOrdene(Ordene ordene) {

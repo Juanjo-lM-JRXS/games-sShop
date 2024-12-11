@@ -1,4 +1,3 @@
-
 package co.edu.ue.entity;
 
 import java.io.Serializable;
@@ -20,10 +19,8 @@ public class Plataforma implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int plataformasID;
 
-	@Column(name="plataformasDescripcion")
 	private String plataformasDescripcion;
 
-	@Column(name="plataformasNombre")
 	private String plataformasNombre;
 
 	//bi-directional many-to-one association to Videojuego

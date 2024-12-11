@@ -18,15 +18,14 @@ public class Ordenesdetalle implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int ordenesDetallesID;
 
-	@Column(name="ordenesDetallesCantidad")
 	private int ordenesDetallesCantidad;
 
-	//bi-directional many-to-one association to Ordenes
+	//bi-directional many-to-one association to Ordene
 	@ManyToOne
 	@JoinColumn(name="ordenesID")
-	private Ordene ordenesID;
+	private Ordene ordene;
 
-	//bi-directional many-to-one association to Videojuegos
+	//bi-directional many-to-one association to Videojuego
 	@ManyToOne
 	@JoinColumn(name="videojuegosID")
 	private Videojuego videojuego;
@@ -50,13 +49,12 @@ public class Ordenesdetalle implements Serializable {
 		this.ordenesDetallesCantidad = ordenesDetallesCantidad;
 	}
 
-	
-	public Ordene getOrdenesID() {
-		return ordenesID;
+	public Ordene getOrdene() {
+		return this.ordene;
 	}
 
-	public void setOrdenesID(Ordene ordenesID) {
-		this.ordenesID = ordenesID;
+	public void setOrdene(Ordene ordene) {
+		this.ordene = ordene;
 	}
 
 	public Videojuego getVideojuego() {

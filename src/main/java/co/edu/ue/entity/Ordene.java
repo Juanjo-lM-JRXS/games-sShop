@@ -19,21 +19,20 @@ public class Ordene implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int ordenesID;
- 
+
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date ordenDate;
 
-	@Column(name="ordenEstado")
 	private int ordenEstado;
-
-	//bi-directional many-to-one association to Ordenesdetalle
-	@OneToMany(mappedBy="ordenesID")
-	private List<Ordenesdetalle> ordenesdetalles;
 
 	//bi-directional many-to-one association to Usuario
 	@ManyToOne
-	@JoinColumn(name="usuariosID", referencedColumnName="usuariosID")
+	@JoinColumn(name="usuariosID")
 	private Usuario usuario;
+
+	//bi-directional many-to-one association to Ordenesdetalle
+	@OneToMany(mappedBy="ordene")
+	private List<Ordenesdetalle> ordenesdetalles;
 
 	public Ordene() {
 	}
@@ -62,6 +61,14 @@ public class Ordene implements Serializable {
 		this.ordenEstado = ordenEstado;
 	}
 
+	public Usuario getUsuario() {
+		return this.usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 	public List<Ordenesdetalle> getOrdenesdetalles() {
 		return this.ordenesdetalles;
 	}
@@ -72,24 +79,16 @@ public class Ordene implements Serializable {
 
 	public Ordenesdetalle addOrdenesdetalle(Ordenesdetalle ordenesdetalle) {
 		getOrdenesdetalles().add(ordenesdetalle);
-		ordenesdetalle.setOrdenesID(this);
+		ordenesdetalle.setOrdene(this);
 
 		return ordenesdetalle;
 	}
 
 	public Ordenesdetalle removeOrdenesdetalle(Ordenesdetalle ordenesdetalle) {
 		getOrdenesdetalles().remove(ordenesdetalle);
-		ordenesdetalle.setOrdenesID(null);
+		ordenesdetalle.setOrdene(null);
 
 		return ordenesdetalle;
-	}
-
-	public Usuario getUsuario() {
-		return this.usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
 	}
 
 }
