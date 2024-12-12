@@ -10,6 +10,5 @@ public interface IUsuarioDao {
 	
 	List<Usuario> listaUsuarioCompleta();
 	Usuario busquedaPorId(int usuariosID);
-	/*Usuario busquedaPorCorreo(String usuariosCorreo);*/
 	Usuario busquedaPorNombreUsuario(String usuariosNombreUsuario);
 }

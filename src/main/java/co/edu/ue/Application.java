@@ -15,6 +15,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 		"co.edu.ue"})
 public class Application {
 
+	//swagger http://localhost:8080/web/swagger-ui/index.html#
+	
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}

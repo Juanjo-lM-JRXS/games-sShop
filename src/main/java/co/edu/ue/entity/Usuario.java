@@ -23,20 +23,28 @@ public class Usuario implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int usuariosID;
 
+	@Column(name="usuariosContraseña")
 	private String usuariosContraseña;
 
+	@Column(name="usuariosCorreo")
 	private String usuariosCorreo;
 
+	@Column(name="usuariosEstado")
 	private int usuariosEstado;
 
+	@Column(name="usuariosNombreUsuario")
 	private String usuariosNombreUsuario;
 
+	@Column(name="usuariosPrimerApellido")
 	private String usuariosPrimerApellido;
 
+	@Column(name="usuariosPrimerNombre")
 	private String usuariosPrimerNombre;
 
+	@Column(name="usuariosSegundoNombre")
 	private String usuariosSegundoNombre;
 
+	@Column(name="usuariosSegundorApellido")
 	private String usuariosSegundorApellido;
 
 	//bi-directional many-to-one association to Ordene
@@ -141,4 +149,14 @@ public class Usuario implements Serializable {
 		return ordene;
 	}
 
+	@Override
+	public String toString() {
+		return "Usuario [usuariosID=" + usuariosID + ", usuariosContraseña=" + usuariosContraseña + ", usuariosCorreo="
+				+ usuariosCorreo + ", usuariosEstado=" + usuariosEstado + ", usuariosNombreUsuario="
+				+ usuariosNombreUsuario + ", usuariosPrimerApellido=" + usuariosPrimerApellido
+				+ ", usuariosPrimerNombre=" + usuariosPrimerNombre + ", usuariosSegundoNombre=" + usuariosSegundoNombre
+				+ ", usuariosSegundorApellido=" + usuariosSegundorApellido + ", ordenes=" + ordenes + "]";
+	}
+
+	
 }

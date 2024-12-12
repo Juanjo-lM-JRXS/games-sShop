@@ -21,7 +21,11 @@ public class UsuarioService implements IUsuarioService{
 
 	@Override
 	public Usuario upUsuario(Usuario usuario) {
-		return dao.actualizarUsuario(usuario);
+		int id = usuario.getUsuariosID();
+		if (!findPorId(id).equals(null)) {
+			return dao.actualizarUsuario(usuario);
+		}
+		return null;
 	}
 
 	@Override

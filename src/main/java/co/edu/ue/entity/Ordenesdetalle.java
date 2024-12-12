@@ -20,22 +20,26 @@ public class Ordenesdetalle implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int ordenesDetallesID;
-
+	
+	@Column(name="ordenesDetallesCantidad")
 	private int ordenesDetallesCantidad;
 
 	//bi-directional many-to-one association to Ordene
 	@ManyToOne
 	@JoinColumn(name="ordenesID")
 	@JsonBackReference
+	//@Column(name="ordenesID")
 	private Ordene ordene;
 
 	//bi-directional many-to-one association to Videojuego
 	@ManyToOne
 	@JoinColumn(name="videojuegosID")
-	@JsonBackReference
+	//@JsonBackReference
+	//@Column(name="videojuegoID")
 	private Videojuego videojuego;
 
 	public Ordenesdetalle() {
+		super();
 	}
 
 	public int getOrdenesDetallesID() {
