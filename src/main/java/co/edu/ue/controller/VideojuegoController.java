@@ -17,7 +17,7 @@ public class VideojuegoController {
 	@Autowired
 	IVideojuegoDao dao;
 	
-	@GetMapping(value="listarVideojuegoDetalles")
+	@GetMapping(value="lista")
 	public List<Videojuego> getVideojuegosDetalles() {
 		return dao.listaVideojuegoCompleta();
 	}

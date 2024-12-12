@@ -24,7 +24,7 @@ public class OrdenesdetalleController {
 		return dao.guardarDetalleOrden(ordenesdetalle);
 	}
 	
-	@GetMapping(value="listarDetallesOrden")
+	@GetMapping(value="lista")
 	public List<Ordenesdetalle> getlistarDetallesOrden() {
 		return dao.listaOrdenesDetallesCompleta();
 	}
