@@ -36,8 +36,6 @@ public class UsuarioController {
 	}
 	
 	
-	
-	
 	/*@PostMapping(value="/guardarUsuario", produces = org.springframework.http.MediaType.APPLICATION_JSON_VALUE, consumes = org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Usuario>> postUsuarios(@RequestBody Usuario usuario) {
 		List<Usuario> listUsuario= dao.guardarUsuario(usuario);

@@ -21,15 +21,17 @@ public class OrdeneController {
 	@Autowired
 	IOrdeneDao dao;
 	
+	@GetMapping(value="listarOrdenes")
+	public List<Ordene> getListarOrdenes() {
+		return dao.listaCompleta();
+	}
+	
 	@PostMapping(value="guardarOrden")
 	public List<Ordene> postOrden(@RequestBody Ordene orden) {
 		return dao.guardarOrden(orden);
 	}
 	
-	@GetMapping(value="listarOrdenes")
-	public List<Ordene> getListarOrdenes() {
-		return dao.listaCompleta();
-	}
+	
 	
 	
 	

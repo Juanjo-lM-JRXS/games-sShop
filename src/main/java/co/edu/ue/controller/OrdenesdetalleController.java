@@ -19,13 +19,14 @@ public class OrdenesdetalleController {
 	@Autowired
 	IOrdenesdetalleDao dao;
 	
+	@GetMapping(value="lista")
+	public List<Ordenesdetalle> getlistarDetallesOrden() {
+		return dao.listaOrdenesDetallesCompleta();
+	}
+	
 	@PostMapping(value="guardarDetallesOrden")
 	public List<Ordenesdetalle> postDetallesOrden(@RequestBody Ordenesdetalle ordenesdetalle) {
 		return dao.guardarDetalleOrden(ordenesdetalle);
 	}
 	
-	@GetMapping(value="lista")
-	public List<Ordenesdetalle> getlistarDetallesOrden() {
-		return dao.listaOrdenesDetallesCompleta();
-	}
 }
