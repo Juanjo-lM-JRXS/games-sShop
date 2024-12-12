@@ -4,6 +4,8 @@ import java.io.Serializable;
 import jakarta.persistence.*;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 /**
  * The persistent class for the plataformas database table.
@@ -24,7 +26,8 @@ public class Plataforma implements Serializable {
 	private String plataformasNombre;
 
 	//bi-directional many-to-one association to Videojuego
-	@OneToMany(mappedBy="plataforma")
+	@OneToMany(mappedBy="plataforma", cascade = CascadeType.REMOVE)
+	@JsonBackReference
 	private List<Videojuego> videojuegos;
 
 	public Plataforma() {

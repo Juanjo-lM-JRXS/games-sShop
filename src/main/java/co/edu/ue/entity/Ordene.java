@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 /**
  * The persistent class for the ordenes database table.
@@ -28,10 +30,12 @@ public class Ordene implements Serializable {
 	//bi-directional many-to-one association to Usuario
 	@ManyToOne
 	@JoinColumn(name="usuariosID")
+	@JsonBackReference
 	private Usuario usuario;
 
 	//bi-directional many-to-one association to Ordenesdetalle
-	@OneToMany(mappedBy="ordene")
+	@OneToMany(mappedBy="ordene", cascade = CascadeType.REMOVE)
+	@JsonBackReference
 	private List<Ordenesdetalle> ordenesdetalles;
 
 	public Ordene() {

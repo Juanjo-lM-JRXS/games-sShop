@@ -4,6 +4,10 @@ import java.io.Serializable;
 import jakarta.persistence.*;
 import java.util.List;
 
+import org.hibernate.annotations.Cascade;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 /**
  * The persistent class for the usuarios database table.
@@ -36,7 +40,8 @@ public class Usuario implements Serializable {
 	private String usuariosSegundorApellido;
 
 	//bi-directional many-to-one association to Ordene
-	@OneToMany(mappedBy="usuario")
+	@OneToMany(mappedBy="usuario", cascade = CascadeType.REMOVE)
+	@JsonBackReference
 	private List<Ordene> ordenes;
 
 	public Usuario() {

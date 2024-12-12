@@ -1,6 +1,9 @@
 package co.edu.ue.entity;
 
 import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.*;
 
 
@@ -23,11 +26,13 @@ public class Ordenesdetalle implements Serializable {
 	//bi-directional many-to-one association to Ordene
 	@ManyToOne
 	@JoinColumn(name="ordenesID")
+	@JsonBackReference
 	private Ordene ordene;
 
 	//bi-directional many-to-one association to Videojuego
 	@ManyToOne
 	@JoinColumn(name="videojuegosID")
+	@JsonBackReference
 	private Videojuego videojuego;
 
 	public Ordenesdetalle() {
