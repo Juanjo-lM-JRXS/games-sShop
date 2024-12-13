@@ -23,7 +23,7 @@ public class UsuarioService implements IUsuarioService{
 	public Usuario upUsuario(Usuario usuario) {
 		int id = usuario.getUsuariosID();
 		if (!findPorId(id).equals(null)) {
-			return dao.actualizarUsuario(usuario);
+			return dao.actualizarUsuario(id,usuario);
 		}
 		return null;
 	}

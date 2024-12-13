@@ -24,7 +24,7 @@ public class OrdenesdetalleController {
 		return dao.listaOrdenesDetallesCompleta();
 	}
 	
-	@PostMapping(value="guardarDetallesOrden")
+	@PostMapping(value="guardar-ordenDetalle")
 	public List<Ordenesdetalle> postDetallesOrden(@RequestBody Ordenesdetalle ordenesdetalle) {
 		return dao.guardarDetalleOrden(ordenesdetalle);
 	}

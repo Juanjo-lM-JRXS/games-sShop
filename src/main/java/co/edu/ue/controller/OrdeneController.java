@@ -21,7 +21,7 @@ public class OrdeneController {
 	@Autowired
 	IOrdeneDao dao;
 	
-	@GetMapping(value="listarOrdenes")
+	@GetMapping(value="lista")
 	public List<Ordene> getListarOrdenes() {
 		return dao.listaCompleta();
 	}

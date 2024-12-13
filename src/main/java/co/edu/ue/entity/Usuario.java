@@ -118,4 +118,14 @@ public class Usuario implements Serializable {
 		this.usuariosSegundorApellido = usuariosSegundorApellido;
 	}
 
+	@Override
+	public String toString() {
+		return "Usuario [usuariosID=" + usuariosID + ", usuariosContraseña=" + usuariosContraseña + ", usuariosCorreo="
+				+ usuariosCorreo + ", usuariosEstado=" + usuariosEstado + ", usuariosNombreUsuario="
+				+ usuariosNombreUsuario + ", usuariosPrimerApellido=" + usuariosPrimerApellido
+				+ ", usuariosPrimerNombre=" + usuariosPrimerNombre + ", usuariosSegundoNombre=" + usuariosSegundoNombre
+				+ ", usuariosSegundorApellido=" + usuariosSegundorApellido + "]";
+	}
+
+	
 }
