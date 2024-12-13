@@ -8,7 +8,7 @@ public interface IVideojuegoService {
 	List<Videojuego> saveVideojuegosdetalle(Videojuego videojuego);
 	Videojuego upVideojuegosdetalle(Videojuego videojuego);
 	
-	List<Videojuego> listVideojuegosdetalleCompleta();
+	List<Videojuego> listAllVideojuegos();
 	Videojuego findPorId(int id);
 	/*Videojuego findPorNombre(String videojuegosNombre);
 	Videojuego findPorPlataforma(int videojuegosPlataformas);*/

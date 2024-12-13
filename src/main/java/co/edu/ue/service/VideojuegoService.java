@@ -25,7 +25,7 @@ public class VideojuegoService implements IVideojuegoService{
 	}
 
 	@Override
-	public List<Videojuego> listVideojuegosdetalleCompleta() {
+	public List<Videojuego> listAllVideojuegos() {
 		return dao.listaVideojuegoCompleta();
 	}
 
