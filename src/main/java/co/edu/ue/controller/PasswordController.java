@@ -8,7 +8,7 @@ import java.util.Map;
 @RequestMapping("/api")
 public class PasswordController {
 
-    @PostMapping("/validar-contraseña")
+    @PostMapping("/	")
     public Map<String, String> validarContrasena(@RequestBody Map<String, String> request) {
         String contrasena = request.get("usuariosContraseña");
 

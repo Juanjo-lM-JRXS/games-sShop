@@ -35,31 +35,26 @@ public class UsuarioController {
     public Map<String, String> postNuevoUsuario(@RequestBody Usuario usuario) {
         Map<String, String> respuesta = new HashMap<>();
 
-        // Validación de que el objeto usuario no sea nulo
         if (usuario == null) {
             respuesta.put("mensaje", "Error: El objeto usuario no puede estar vacío.");
             respuesta.put("valida", "false");
             return respuesta;
         }
 
-        // Obtén la contraseña del usuario
         String contrasena = usuario.getUsuariosContraseña();
 
-        // Imprime la contraseña para depuración
         System.out.println("Contraseña recibida: " + contrasena);
-
-        // Validación de la contraseña
+        
         if (contrasena == null || contrasena.isEmpty()) {
             respuesta.put("mensaje", "Error: La contraseña no puede estar vacía.");
             respuesta.put("valida", "false");
         } else {
-            // Si la contraseña no está vacía, guarda el usuario
             service.saveUsuario(usuario);
             respuesta.put("mensaje", "Usuario guardado con éxito.");
             respuesta.put("valida", "true");
         }
 
-        return respuesta; // Devuelve la respuesta
+        return respuesta; 
     }
 
     @PutMapping(value = "actualiza")
