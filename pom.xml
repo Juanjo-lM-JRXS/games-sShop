@@ -65,11 +65,6 @@
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
 			<version>2.6.0</version>
 		</dependency>
-		<dependency>
-			<groupId>co.edu.ue</groupId>
-			<artifactId>1-PrimerServicio</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 	</dependencies>
 
 	<build>
