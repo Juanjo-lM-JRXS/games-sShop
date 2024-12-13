@@ -9,54 +9,61 @@ import co.edu.ue.dao.IUsuarioDao;
 import co.edu.ue.entity.Usuario;
 
 @Service
-public class UsuarioService implements IUsuarioService{
-	
-	@Autowired
-	IUsuarioDao dao;
+public class UsuarioService implements IUsuarioService {
+    
+    @Autowired
+    private IUsuarioDao dao;  // Usamos la interfaz del DAO para realizar operaciones en la base de datos.
 
-	@Override
-	public List<Usuario> saveUsuario(Usuario usuario) {
-		return dao.guardarUsuario(usuario);
-	}
+    // Guardar un nuevo usuario
+    @Override
+    public List<Usuario> saveUsuario(Usuario usuario) {
+        dao.guardarUsuario(usuario);  // Usamos el método del DAO para guardar un usuario
+        return listaAllUsers();  // Retornamos la lista actualizada de todos los usuarios
+    }
 
-	@Override
-	public Usuario upUsuario(Usuario usuario) {
-		int id = usuario.getUsuariosID();
-		if(!findPorId(id).equals(null)) {
-			return dao.actualizarUsuario(usuario);
-		}		
-		return null;
-	}
+    // Actualizar un usuario
+    @Override
+    public Usuario upUsuario(Usuario usuario) {
+        int id = usuario.getUsuariosID();  // Obtenemos el ID del usuario
+        if (findPorId(id) != null) {  // Verificamos si el usuario existe
+            return dao.actualizarUsuario(usuario);  // Si existe, lo actualizamos
+        }
+        return null;  // Si no existe, retornamos null
+    }
 
+    // Obtener todos los usuarios
+    @Override
+    public List<Usuario> listaAllUsers() {
+        return dao.listaUsuarioCompleta();  // Usamos el método del DAO para obtener todos los usuarios
+    }
 
-	@Override
-	public List<Usuario> listaAllUsers() {
-		return dao.listaUsuarioCompleta();
-	}
+    // Buscar usuario por ID
+    @Override
+    public Usuario findPorId(int usuariosID) {
+        return dao.busquedaPorId(usuariosID);  // Usamos el método del DAO para buscar el usuario por ID
+    }
 
-	@Override
-	public Usuario findPorId(int usuariosID) {
-		return dao.busquedaPorId(usuariosID);
-	}
+    // Buscar usuario por nombre de usuario
+    @Override
+    public Usuario findPorNombreUsuario(String usuariosNombreUsuario) {
+        return dao.busquedaPorNombreUsuario(usuariosNombreUsuario);  // Buscamos por nombre de usuario
+    }
 
-	@Override
-	public Usuario findPorNombreUsuario(String usuariosNombreUsuario) {
-		return dao.busquedaPorNombreUsuario(usuariosNombreUsuario);
-	}
+    // Buscar usuario por correo electrónico
+    @Override
+    public Usuario findUsuariosCorreo(String usuariosCorreo) {
+        return dao.busquedaUsuariosCorreo(usuariosCorreo);  // Buscamos por correo
+    }
 
-	@Override
-	public Usuario findUsuariosCorreo(String usuariosCorreo) {
-		return dao.busquedaUsuariosCorreo(usuariosCorreo);
-	}
+    // Buscar usuario por estado
+    @Override
+    public List<Usuario> busquedaEstado(int usuariosEstado) {
+    	return dao.busquedaEstado(usuariosEstado);
+    }
 
-	@Override
-	public Usuario findEstado(int usuariosEstado) {
-		return dao.busquedaEstado(usuariosEstado);
-	}
-
-	@Override
-	public Usuario upEstadoUsuario(Usuario usuario) {
-		return dao.actualizarUsuario(usuario);
-	}
-	
+    // Actualizar el estado de un usuario
+    @Override
+    public Usuario upEstadoUsuario(Usuario usuario) {
+        return dao.actualizarUsuario(usuario);  // Usamos el método del DAO para actualizar el usuario
+    }
 }

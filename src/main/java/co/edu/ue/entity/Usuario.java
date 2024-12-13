@@ -3,7 +3,6 @@ package co.edu.ue.entity;
 import java.io.Serializable;
 import jakarta.persistence.*;
 
-
 /**
  * The persistent class for the usuarios database table.
  * 
@@ -19,7 +18,7 @@ public class Usuario implements Serializable {
 	private int usuariosID;
 	
 	@Column(name="usuariosContraseña")
-	private String usuariosContraseña;
+	private String usuariosContraseña;  // Esta es la propiedad que ya tenías
 
 	@Column(name="usuariosCorreo")
 	private String usuariosCorreo;
@@ -46,6 +45,7 @@ public class Usuario implements Serializable {
 		super();
 	}
 
+	// Getter y Setter para usuariosContraseña
 	public String getUsuariosContraseña() {
 		return this.usuariosContraseña;
 	}
@@ -126,6 +126,6 @@ public class Usuario implements Serializable {
 				+ ", usuariosPrimerNombre=" + usuariosPrimerNombre + ", usuariosSegundoNombre=" + usuariosSegundoNombre
 				+ ", usuariosSegundorApellido=" + usuariosSegundorApellido + "]";
 	}
-
 	
 }
+

@@ -8,29 +8,51 @@ import java.util.Map;
 @RequestMapping("/api")
 public class PasswordController {
 
-    @PostMapping("/validar-contrasena")
+    @PostMapping("/validar-contraseña")
     public Map<String, String> validarContrasena(@RequestBody Map<String, String> request) {
-        // Obtener la contraseña enviada por el usuario
-        String contrasena = request.get("contrasena");
+        String contrasena = request.get("usuariosContraseña");
 
-        // Expresión regular para validar la contraseña
-        String regex = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[@#$%^&+=!]).{5,}$";
+        // Expresiones regulares para cada validación
+        String regexMayuscula = ".*[A-Z].*";  // Para validar al menos una mayúscula
+        String regexMinuscula = ".*[a-z].*";  // Para validar al menos una minúscula
+        String regexNumero = ".*\\d.*";       // Para validar al menos un número
+        String regexEspecial = ".*[*@#$%^&+=!].*"; // Para validar al menos un carácter especial
+        String regexLongitud = ".{5,}";        // Para validar la longitud mínima de 5 caracteres
 
-        // Crear un mapa para responder al cliente
         Map<String, String> respuesta = new HashMap<>();
 
-        // Validar la contraseña
-        if (contrasena != null && contrasena.matches(regex)) {
-            respuesta.put("mensaje", "La contraseña es válida.");
-            respuesta.put("valida", "true");
-        } else {
-            respuesta.put("mensaje", "Error: La contraseña no cumple con los requisitos:\n"
-                + "- Debe tener al menos 1 letra mayúscula.\n"
-                + "- Debe tener al menos 1 letra minúscula.\n"
-                + "- Debe tener al menos 1 carácter especial (@#$%^&+=!).\n"
-                + "- Debe tener al menos 5 caracteres.");
+        // Verificar si la contraseña es válida y dar mensaje adecuado
+        if (contrasena == null || contrasena.isEmpty()) {
+            respuesta.put("mensaje", "Error: La contraseña no puede estar vacía.");
             respuesta.put("valida", "false");
+        } else if (!contrasena.matches(regexLongitud)) {
+            respuesta.put("mensaje", "Error: La contraseña debe tener al menos 5 caracteres.");
+            respuesta.put("valida", "false");
+        } else {
+            StringBuilder mensajeError = new StringBuilder();
+
+            if (!contrasena.matches(regexMayuscula)) {
+                mensajeError.append("Debe tener al menos una letra mayúscula. ");
+            }
+            if (!contrasena.matches(regexMinuscula)) {
+                mensajeError.append("Debe tener al menos una letra minúscula. ");
+            }
+            if (!contrasena.matches(regexNumero)) {
+                mensajeError.append("Debe tener al menos un número. ");
+            }
+            if (!contrasena.matches(regexEspecial)) {
+                mensajeError.append("Debe tener al menos un carácter especial (@#$%^&+=!). ");
+            }
+
+            if (mensajeError.length() > 0) {
+                respuesta.put("mensaje", mensajeError.toString());
+                respuesta.put("valida", "false");
+            } else {
+                respuesta.put("mensaje", "La contraseña es válida.");
+                respuesta.put("valida", "true");
+            }
         }
+        
 
         return respuesta;
     }

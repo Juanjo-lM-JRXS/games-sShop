@@ -96,9 +96,8 @@ public class UsuarioDao implements IUsuarioDao{
 	}
 
 	@Override
-	public Usuario busquedaEstado(int estado) {
-		jpa.findByusuariosEstado(estado);
-		return (Usuario) listaUsuarioCompleta();
+	public List<Usuario> busquedaEstado(int estado) {
+		return jpa.findByusuariosEstado(estado);
 	}
 
 
