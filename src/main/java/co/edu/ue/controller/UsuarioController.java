@@ -3,6 +3,8 @@ package co.edu.ue.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 import co.edu.ue.dao.IUsuarioDao;
 import co.edu.ue.entity.Usuario;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 @RestController
 @RequestMapping(value = "/usuario")
@@ -25,11 +30,21 @@ public class UsuarioController {
 		return dao.listaUsuarioCompleta();
 	}
 	
+	@PostMapping(value="guarda-usuario-one")
+	public Usuario postsaveUser(@RequestBody Usuario usuario) {
+			return dao.saveUsuario(usuario);	
+	}	
+	
 	@PostMapping(value="guarda-usuario")
-	public List<Usuario> postsaveUser(@RequestBody Usuario usuario) {
-			return dao.guardarUsuario(usuario);	
+	public ResponseEntity<Usuario> postsaveUser2(@RequestBody Usuario usuario) {
+		Usuario nuevoUsuario = dao.saveUsuario(usuario);
+		return ResponseEntity.status(HttpStatus.CREATED).body(nuevoUsuario);	
 	}
 	
+	@PutMapping(value="actualiza/{id}")
+	public Usuario putActualizaUsuario(@PathVariable int id, @RequestBody Usuario usuario) {
+		return dao.actualizarUsuario(id, usuario);
+	}
 	
 	/*@PostMapping(value="/guardarUsuario", produces = org.springframework.http.MediaType.APPLICATION_JSON_VALUE, consumes = org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Usuario>> postUsuarios(@RequestBody Usuario usuario) {
