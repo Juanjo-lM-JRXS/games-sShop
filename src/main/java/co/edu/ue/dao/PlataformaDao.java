@@ -25,6 +25,13 @@ public class PlataformaDao implements IPlataformaDao{
 	}
 
 	@Override
+	public Plataforma eliminarPlataforma(int id) {
+		jpa.deleteById(id);
+		listaPlataformaCompleta();
+		return null;
+	}
+
+	@Override
 	public List<Plataforma> listaPlataformaCompleta() {
 		return jpa.findAll();
 	}

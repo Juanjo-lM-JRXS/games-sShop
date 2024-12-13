@@ -18,7 +18,14 @@ public class VideojuegoService implements IVideojuegoService{
 	public Videojuego upVideojuegosdetalle(Videojuego videojuego) {
 		return dao.actualizarVideojuego(videojuego);
 	}
-	
+
+	@Override
+	public Videojuego deleteVideojuego(int id) {
+		dao.eliminarVideojuego(id);
+		listAllVideojuegos();
+		return null;
+	}
+
 	@Override
 	public Videojuego saveVideojuegosdetalle(Videojuego videojuego) {
 		return dao.guardarVideojuego(videojuego);

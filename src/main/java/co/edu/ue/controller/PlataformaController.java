@@ -3,20 +3,12 @@ package co.edu.ue.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import co.edu.ue.dao.IPlataformaDao;
 import co.edu.ue.entity.Plataforma;
 import co.edu.ue.entity.Usuario;
 import co.edu.ue.service.IPlataformaService;
-
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-
 
 
 @RestController
@@ -39,6 +31,11 @@ public class PlataformaController {
 	@PutMapping(value="actualizar")
 	public Plataforma putActualizarplataforma(@RequestBody Plataforma plataforma) {
 		return dao.actualizarPlataforma(plataforma);
+	}
+
+	@DeleteMapping(value="eliminar/{id}")
+	public Plataforma deletePlataforma(@RequestParam int id) {
+		return dao.eliminarPlataforma(id);
 	}
 	
 	

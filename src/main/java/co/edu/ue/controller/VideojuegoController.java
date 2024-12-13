@@ -3,13 +3,7 @@ package co.edu.ue.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import co.edu.ue.dao.IVideojuegoDao;
 import co.edu.ue.entity.Usuario;
@@ -37,6 +31,10 @@ public class VideojuegoController {
 	public Videojuego putMethodName(@PathVariable String id, @RequestBody Videojuego videojuego) {
 		return service.upVideojuegosdetalle(videojuego);
 	}
-	
+
+	@DeleteMapping(value = "elimina/{id}")
+	public Videojuego deleteMethodName(@PathVariable int id) {
+		return service.deleteVideojuego(id);
+	}
 	
 }

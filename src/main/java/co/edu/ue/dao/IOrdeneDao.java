@@ -8,6 +8,7 @@ public interface IOrdeneDao {
 	//Declaracion de metodos abstractos o constantes
 	List<Ordene> guardarOrden(Ordene ordene);
 	Ordene actualizaOrden(Ordene ordene);
+	Ordene eliminarOrden(int id);
 	
 	// consultas
 	List<Ordene> listaCompleta();

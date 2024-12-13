@@ -26,6 +26,13 @@ public class OrdeneDao implements IOrdeneDao{
 	}
 
 	@Override
+	public Ordene eliminarOrden(int id) {
+		jpa.deleteById(id);
+		listaCompleta();
+		return null;
+	}
+
+	@Override
 	public List<Ordene> listaCompleta() {		
 		return jpa.findAll();
 	}
