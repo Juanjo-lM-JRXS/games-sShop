@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.ue.dao.IVideojuegoDao;
+import co.edu.ue.entity.Usuario;
 import co.edu.ue.entity.Videojuego;
 import co.edu.ue.service.IVideojuegoService;
 
@@ -27,8 +28,8 @@ public class VideojuegoController {
 		return service.listAllVideojuegos();
 	}
 	
-	@PostMapping(value="nuevo-juego")
-	public List<Videojuego> postMethodName(@RequestBody Videojuego videojuego) {		
+	@PostMapping(value="nuevo-videojuego")
+	public Videojuego postNuevoUsuario(@RequestBody Videojuego videojuego) {
 		return service.saveVideojuegosdetalle(videojuego);
 	}
 	

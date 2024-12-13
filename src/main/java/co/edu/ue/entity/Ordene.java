@@ -30,7 +30,7 @@ public class Ordene implements Serializable {
 	//bi-directional many-to-one association to Usuario
 	@ManyToOne
 	@JoinColumn(name="usuariosID")
-	@JsonBackReference
+	//@JsonBackReference
 	private Usuario usuario;
 
 	//bi-directional many-to-one association to Ordenesdetalle

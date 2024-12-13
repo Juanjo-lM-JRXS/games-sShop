@@ -12,16 +12,16 @@ import co.edu.ue.entity.Videojuego;
 public class VideojuegoService implements IVideojuegoService{
 	
 	@Autowired
-	IVideojuegoDao dao;
-	
-	@Override
-	public List<Videojuego> saveVideojuegosdetalle(Videojuego videojuego) {
-		return dao.guardarVideojuego(videojuego);
-	}
+	private IVideojuegoDao dao;
 
 	@Override
 	public Videojuego upVideojuegosdetalle(Videojuego videojuego) {
 		return dao.actualizarVideojuego(videojuego);
+	}
+	
+	@Override
+	public Videojuego saveVideojuegosdetalle(Videojuego videojuego) {
+		return dao.guardarVideojuego(videojuego);
 	}
 
 	@Override

@@ -6,7 +6,7 @@ import java.util.List;
 import co.edu.ue.entity.Videojuego;
 
 public interface IVideojuegoDao {
-	List<Videojuego> guardarVideojuego (Videojuego videojuego);
+	Videojuego guardarVideojuego(Videojuego videojuego);
 	Videojuego actualizarVideojuego(Videojuego videojuego);
 	
 	List<Videojuego> listaVideojuegoCompleta();

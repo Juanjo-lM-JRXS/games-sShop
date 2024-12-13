@@ -27,14 +27,14 @@ public class Ordenesdetalle implements Serializable {
 	//bi-directional many-to-one association to Ordene
 	@ManyToOne
 	@JoinColumn(name="ordenesID")
-	@JsonBackReference
+	//@JsonBackReference
 	//@Column(name="ordenesID")
 	private Ordene ordene;
 
 	//bi-directional many-to-one association to Videojuego
 	@ManyToOne
 	@JoinColumn(name="videojuegosID")
-	//@JsonBackReference
+	@JsonBackReference
 	//@Column(name="videojuegoID")
 	private Videojuego videojuego;
 

@@ -2,9 +2,6 @@ package co.edu.ue.entity;
 
 import java.io.Serializable;
 import jakarta.persistence.*;
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 
 /**
@@ -18,25 +15,15 @@ public class Videojuego implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int videojuegosID;
+
+	private int plataformasID;
 
 	private String videojuegosDescripcion;
 
 	private String videojuegosNombre;
 
 	private double videojuegosPrecio;
-
-	//bi-directional many-to-one association to Ordenesdetalle
-	@OneToMany(mappedBy="videojuego", cascade = CascadeType.REMOVE)
-	@JsonBackReference
-	private List<Ordenesdetalle> ordenesdetalles;
-
-	//bi-directional many-to-one association to Plataforma
-	@ManyToOne
-	@JoinColumn(name="plataformasID")
-	@JsonBackReference
-	private Plataforma plataforma;
 
 	public Videojuego() {
 	}
@@ -47,6 +34,14 @@ public class Videojuego implements Serializable {
 
 	public void setVideojuegosID(int videojuegosID) {
 		this.videojuegosID = videojuegosID;
+	}
+
+	public int getPlataformasID() {
+		return this.plataformasID;
+	}
+
+	public void setPlataformasID(int plataformasID) {
+		this.plataformasID = plataformasID;
 	}
 
 	public String getVideojuegosDescripcion() {
@@ -71,36 +66,6 @@ public class Videojuego implements Serializable {
 
 	public void setVideojuegosPrecio(double videojuegosPrecio) {
 		this.videojuegosPrecio = videojuegosPrecio;
-	}
-
-	public List<Ordenesdetalle> getOrdenesdetalles() {
-		return this.ordenesdetalles;
-	}
-
-	public void setOrdenesdetalles(List<Ordenesdetalle> ordenesdetalles) {
-		this.ordenesdetalles = ordenesdetalles;
-	}
-
-	public Ordenesdetalle addOrdenesdetalle(Ordenesdetalle ordenesdetalle) {
-		getOrdenesdetalles().add(ordenesdetalle);
-		ordenesdetalle.setVideojuego(this);
-
-		return ordenesdetalle;
-	}
-
-	public Ordenesdetalle removeOrdenesdetalle(Ordenesdetalle ordenesdetalle) {
-		getOrdenesdetalles().remove(ordenesdetalle);
-		ordenesdetalle.setVideojuego(null);
-
-		return ordenesdetalle;
-	}
-
-	public Plataforma getPlataforma() {
-		return this.plataforma;
-	}
-
-	public void setPlataforma(Plataforma plataforma) {
-		this.plataforma = plataforma;
 	}
 
 }

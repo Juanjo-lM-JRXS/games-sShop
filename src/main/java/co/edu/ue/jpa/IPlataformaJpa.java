@@ -7,5 +7,4 @@ import co.edu.ue.entity.Plataforma;
 
 @Repository
 public interface IPlataformaJpa extends JpaRepository<Plataforma, Integer>{
-	/*Plataforma findByPlataformaId(int plataformasID);*/
 }

@@ -2,9 +2,6 @@ package co.edu.ue.entity;
 
 import java.io.Serializable;
 import jakarta.persistence.*;
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 
 /**
@@ -18,17 +15,11 @@ public class Plataforma implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int plataformasID;
 
 	private String plataformasDescripcion;
 
 	private String plataformasNombre;
-
-	//bi-directional many-to-one association to Videojuego
-	@OneToMany(mappedBy="plataforma", cascade = CascadeType.REMOVE)
-	@JsonBackReference
-	private List<Videojuego> videojuegos;
 
 	public Plataforma() {
 	}
@@ -55,28 +46,6 @@ public class Plataforma implements Serializable {
 
 	public void setPlataformasNombre(String plataformasNombre) {
 		this.plataformasNombre = plataformasNombre;
-	}
-
-	public List<Videojuego> getVideojuegos() {
-		return this.videojuegos;
-	}
-
-	public void setVideojuegos(List<Videojuego> videojuegos) {
-		this.videojuegos = videojuegos;
-	}
-
-	public Videojuego addVideojuego(Videojuego videojuego) {
-		getVideojuegos().add(videojuego);
-		videojuego.setPlataforma(this);
-
-		return videojuego;
-	}
-
-	public Videojuego removeVideojuego(Videojuego videojuego) {
-		getVideojuegos().remove(videojuego);
-		videojuego.setPlataforma(null);
-
-		return videojuego;
 	}
 
 }

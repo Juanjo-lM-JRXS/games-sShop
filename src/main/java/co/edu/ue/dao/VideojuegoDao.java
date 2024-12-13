@@ -15,9 +15,8 @@ public class VideojuegoDao implements IVideojuegoDao{
 	IVideojuegoJpa jpa;
 	
 	@Override
-	public List<Videojuego> guardarVideojuego(Videojuego videojuego) {
-		jpa.save(videojuego);
-		return listaVideojuegoCompleta();
+	public Videojuego guardarVideojuego(Videojuego videojuego) {
+		return jpa.save(videojuego);
 	}
 
 	@Override

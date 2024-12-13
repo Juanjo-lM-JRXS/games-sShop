@@ -21,11 +21,15 @@ public class PlataformaService implements IPlataformaService{
 
 	@Override
 	public Plataforma upPlataforma(Plataforma plataforma) {
-		return dao.actualizarPlataforma(plataforma);
+		int id = plataforma.getPlataformasID();
+		if(!findPorId(id).equals(null)) {
+			return dao.actualizarPlataforma(plataforma);
+		}		
+	return null;
 	}
 
 	@Override
-	public List<Plataforma> listPlataformaCompleta() {
+	public List<Plataforma> listAllPlataformas() {
 		return dao.listaPlataformaCompleta();
 	}
 

@@ -9,8 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.ue.dao.IPlataformaDao;
 import co.edu.ue.entity.Plataforma;
+import co.edu.ue.entity.Usuario;
+import co.edu.ue.service.IPlataformaService;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 
 @RestController
@@ -20,14 +26,21 @@ public class PlataformaController {
 	@Autowired
 	IPlataformaDao dao;
 		
-	@GetMapping(value="/lista")
+	@GetMapping(value="lista")
 	public List<Plataforma> getlistarPlataformas() {
 		return dao.listaPlataformaCompleta();
 	}
 	
-	@PostMapping(value="/guardar-plataforma")
-	public List<Plataforma> postNuevaplataforma(@RequestBody Plataforma plataforma) {		
+	@PostMapping(value="guardar-plataforma")
+	public List<Plataforma> postNuevaplataforma(@org.springframework.web.bind.annotation.RequestBody Plataforma plataforma) {		
 		return dao.guardarPlataforma(plataforma);
 	}
+	
+	@PutMapping(value="actualizar")
+	public Plataforma putActualizarplataforma(@RequestBody Plataforma plataforma) {
+		return dao.actualizarPlataforma(plataforma);
+	}
+	
+	
 	
 }
