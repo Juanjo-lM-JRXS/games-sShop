@@ -25,6 +25,12 @@ public class OrdeneService implements IOrdeneService{
 	}
 
 	@Override
+	public Ordene delOrden(int id) {
+		dao.eliminarOrden(id);
+		return null;
+	}
+
+	@Override
 	public List<Ordene> listAll() {
 		return dao.listaCompleta();
 	}

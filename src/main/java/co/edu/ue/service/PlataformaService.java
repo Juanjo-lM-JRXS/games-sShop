@@ -29,6 +29,11 @@ public class PlataformaService implements IPlataformaService{
 	}
 
 	@Override
+	public Plataforma deletePlataforma(int id) {
+		return dao.eliminarPlataforma(id);
+	}
+
+	@Override
 	public List<Plataforma> listAllPlataformas() {
 		return dao.listaPlataformaCompleta();
 	}
