@@ -7,7 +7,7 @@ import co.edu.ue.entity.Usuario;
 
 @Repository
 public interface IUsuarioJpa extends JpaRepository<Usuario, Integer>{
-	/*Usuario findByUsuarioID(int usuariosID);
-	Usuario findByUsuariosCorreo(String usuariosCorreo);*/
+	Usuario findByUsuariosCorreo(String usuariosCorreo);
 	Usuario findByusuariosNombreUsuario(String usuariosNombreUsuario);
+	Usuario findByusuariosEstado(int usuariosEstado);
 }

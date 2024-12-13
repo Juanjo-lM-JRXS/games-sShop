@@ -12,9 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.ue.dao.IUsuarioDao;
 import co.edu.ue.entity.Usuario;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import co.edu.ue.service.IUsuarioService;
+
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @RestController
@@ -22,28 +25,29 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class UsuarioController {
 
 	@Autowired
-	IUsuarioDao dao;
+	IUsuarioService service;
 	
 	
 	@GetMapping(value="lista")
 	public List<Usuario> getlistarUsuarios() {
-		return dao.listaUsuarioCompleta();
+		return service.listaAllUsers();
 	}
 	
-	@PostMapping(value="guarda-usuario-one")
-	public Usuario postsaveUser(@RequestBody Usuario usuario) {
-			return dao.saveUsuario(usuario);	
-	}	
-	
-	@PostMapping(value="guarda-usuario")
-	public ResponseEntity<Usuario> postsaveUser2(@RequestBody Usuario usuario) {
-		Usuario nuevoUsuario = dao.saveUsuario(usuario);
-		return ResponseEntity.status(HttpStatus.CREATED).body(nuevoUsuario);	
+	@PostMapping(value="nuevo-usuario")
+	public List<Usuario> postNuevoUsuario(@org.springframework.web.bind.annotation.RequestBody Usuario usuario) {
+		return service.saveUsuario(usuario);
 	}
 	
-	@PutMapping(value="actualiza/{id}")
-	public Usuario putActualizaUsuario(@PathVariable int id, @RequestBody Usuario usuario) {
-		return dao.actualizarUsuario(id, usuario);
+	
+	@PutMapping(value="actualiza")
+	public Usuario putActualizaUsuario(@org.springframework.web.bind.annotation.RequestBody Usuario usuario) {
+		return service.upUsuario(usuario);
+	}
+	
+	//Toca mirar esta vuelta esta como mal
+	@GetMapping(value="activos")
+	public Usuario getConsultaUsuariosActivos() {
+		return service.findEstado(1);
 	}
 	
 	/*@PostMapping(value="/guardarUsuario", produces = org.springframework.http.MediaType.APPLICATION_JSON_VALUE, consumes = org.springframework.http.MediaType.APPLICATION_JSON_VALUE)

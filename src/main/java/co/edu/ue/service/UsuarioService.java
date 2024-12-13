@@ -13,7 +13,7 @@ public class UsuarioService implements IUsuarioService{
 	
 	@Autowired
 	IUsuarioDao dao;
-	
+
 	@Override
 	public List<Usuario> saveUsuario(Usuario usuario) {
 		return dao.guardarUsuario(usuario);
@@ -22,30 +22,41 @@ public class UsuarioService implements IUsuarioService{
 	@Override
 	public Usuario upUsuario(Usuario usuario) {
 		int id = usuario.getUsuariosID();
-		if (!findPorId(id).equals(null)) {
-			return dao.actualizarUsuario(id,usuario);
-		}
+		if(!findPorId(id).equals(null)) {
+			return dao.actualizarUsuario(usuario);
+		}		
 		return null;
 	}
 
+
 	@Override
-	public List<Usuario> listUsuarioCompleta() {
+	public List<Usuario> listaAllUsers() {
 		return dao.listaUsuarioCompleta();
 	}
 
 	@Override
-	public Usuario findPorId(int id) {
-		return dao.busquedaPorId(id);
-	}
-
-	/*@Override
-	public Usuario findPorCorreo(String usuariosCorreo) {
-		return dao.busquedaPorCorreo(usuariosCorreo);
+	public Usuario findPorId(int usuariosID) {
+		return dao.busquedaPorId(usuariosID);
 	}
 
 	@Override
 	public Usuario findPorNombreUsuario(String usuariosNombreUsuario) {
 		return dao.busquedaPorNombreUsuario(usuariosNombreUsuario);
-	}*/
+	}
 
+	@Override
+	public Usuario findUsuariosCorreo(String usuariosCorreo) {
+		return dao.busquedaUsuariosCorreo(usuariosCorreo);
+	}
+
+	@Override
+	public Usuario findEstado(int usuariosEstado) {
+		return dao.busquedaEstado(usuariosEstado);
+	}
+
+	@Override
+	public Usuario upEstadoUsuario(Usuario usuario) {
+		return dao.actualizarUsuario(usuario);
+	}
+	
 }

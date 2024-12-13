@@ -23,8 +23,11 @@ public class UsuarioDao implements IUsuarioDao{
 	}
 
 	@Override
-	public Usuario actualizarUsuario(int id, Usuario usuario) {
-		Usuario usuarioNew = jpa.findById(id).get();
+	public Usuario actualizarUsuario(Usuario usuario) {
+		
+		return jpa.save(usuario);
+		
+				/*Usuario usuarioNew = jpa.findById(id).get();
 		
 		if(Objects.nonNull(usuario.getUsuariosContraseña()) && 
 				!"".equalsIgnoreCase(usuario.getUsuariosContraseña())){
@@ -60,9 +63,9 @@ public class UsuarioDao implements IUsuarioDao{
 				!"".equalsIgnoreCase(usuario.getUsuariosSegundorApellido())){
 			usuarioNew.setUsuariosSegundorApellido(usuarioNew.getUsuariosSegundorApellido());
 		}	
-		
 		return jpa.save(usuarioNew);
-	}
+		*/	
+			}
 
 	@Override
 	public List<Usuario> listaUsuarioCompleta() {
@@ -79,23 +82,24 @@ public class UsuarioDao implements IUsuarioDao{
 		return jpa.findByusuariosNombreUsuario(usuariosNombreUsuario);
 	}
 
+
 	@Override
-	public Usuario saveUsuario(Usuario usuario) {		
-		return jpa.save(usuario);
+	public Usuario actualizarEstadoUsuario(Usuario usuario){
+		actualizarUsuario(usuario);
+		int id = usuario.getUsuariosID();
+		return busquedaPorId(id);
 	}
 
 	@Override
-	public void eliminarUsuario(int id){
-		jpa.deleteById(id);
-	}
-
-	/*@Override
-	public Usuario busquedaPorCorreo(String usuariosCorreo) {
+	public Usuario busquedaUsuariosCorreo(String usuariosCorreo) {
 		return jpa.findByUsuariosCorreo(usuariosCorreo);
 	}
 
 	@Override
-	public Usuario busquedaPorNombreUsuario(String usuariosNombreUsuario) {
-		return jpa.findByNombreUsuario(usuariosNombreUsuario);
-	}*/
+	public Usuario busquedaEstado(int estado) {
+		jpa.findByusuariosEstado(estado);
+		return (Usuario) listaUsuarioCompleta();
+	}
+
+
 }
