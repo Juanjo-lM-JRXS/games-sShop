@@ -66,4 +66,23 @@ public class UsuarioService implements IUsuarioService {
     public Usuario upEstadoUsuario(Usuario usuario) {
         return dao.actualizarUsuario(usuario);  // Usamos el método del DAO para actualizar el usuario
     }
+
+	@Override
+	public List<Usuario> findEstado1(int usuariosEstado) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Usuario> findEstado(int busquedaestado) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Usuario deleteUsuario(int id) {
+		return dao.eliminarUsuario(id);
+	}
+	
+	
 }

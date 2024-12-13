@@ -5,7 +5,10 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.actuate.endpoint.annotation.DeleteOperation;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -68,6 +71,13 @@ public class UsuarioController {
     public List<Usuario> getConsultaUsuariosActivos() {
         return (List<Usuario>) service.busquedaEstado(1);
     }
+    
+    @DeleteMapping(value="delete/{id}")
+    public Usuario deleteUsuario(@PathVariable int id){
+    	return service.deleteUsuario(id);
+    }
+    
+    
 }
 
 

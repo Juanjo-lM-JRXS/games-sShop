@@ -6,6 +6,7 @@ import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import co.edu.ue.entity.Usuario;
 import co.edu.ue.jpa.IUsuarioJpa;
@@ -100,5 +101,12 @@ public class UsuarioDao implements IUsuarioDao{
 		return jpa.findByusuariosEstado(estado);
 	}
 
+	@Override
+	public Usuario eliminarUsuario(int id) {
+		jpa.deleteById(id);
+		listaUsuarioCompleta();
+		return null;
+				
+	}
 
 }

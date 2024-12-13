@@ -39,12 +39,8 @@ public class OrdeneController {
 	}
 	
 	@PutMapping(value="actualiza/{id}")
-	public Ordene putGame(@PathVariable int id, @RequestBody Ordene ordene) {
-		//TODO: process PUT request
-		
+	public Ordene putGame(@PathVariable int id, @RequestBody Ordene ordene) {		
 		return service.upOrden(ordene);
 	}
-	//Comentario
-	
 	
 }
