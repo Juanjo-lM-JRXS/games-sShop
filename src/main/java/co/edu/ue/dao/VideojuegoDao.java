@@ -25,6 +25,13 @@ public class VideojuegoDao implements IVideojuegoDao{
 	}
 
 	@Override
+	public Videojuego eliminarVideojuego(int id) {
+		jpa.deleteById(id);
+		listaVideojuegoCompleta();
+		return null;
+	}
+
+	@Override
 	public List<Videojuego> listaVideojuegoCompleta() {
 		return jpa.findAll();
 	}
